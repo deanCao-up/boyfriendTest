@@ -53,7 +53,7 @@ const questions = [
   },
   {
     id: 10, dim: 1, text: "你觉得谈恋爱花钱应该？", opts: [
-      { key: "A", text: "有规划有计划不铺张", type: "爹系" }, { key: "B", text: "开心就好分不分无所谓", type: "痞帅" },
+      { key: "A", text: "有规划有计划不铺张", type: "爹系" }, { key: "B", text: "开心就好，花多点少点无所谓", type: "痞帅" },
       { key: "C", text: "能用钱解决的都不是事", type: "总裁" }, { key: "D", text: "建立账本记录各项支出", type: "理工" }]
   },
   {
@@ -73,7 +73,7 @@ const questions = [
   },
   {
     id: 14, dim: 1, text: "你希望闺蜜怎么评价他？", opts: [
-      { key: "A", text: "\"他把你照顾得太好了\"", type: "爹系" }, { key: "B", text: "\"他好有意思每天都开心\"", type: "痞帅" },
+      { key: "A", text: "\"他把你照顾得太好了\"", type: "爹系" }, { key: "B", text: "\"他好有意思，每天都充满活力\"", type: "痞帅" },
       { key: "C", text: "\"跟他在一起你好松弛\"", type: "文艺" }, { key: "D", text: "\"他聪明又靠谱\"", type: "理工" }]
   },
   {
@@ -324,8 +324,8 @@ async function testAllImages() {
   const pass = results.filter(r => r.status === "✅").length;
   const fail = results.filter(r => r.status !== "✅").length;
   testPanel.innerHTML = `<b>📷 图片加载测试结果</b> <span style="font-size:11px;color:#999">${pass}/${results.length} 通过</span><br><br>` +
-    results.map(r => `<div style="margin:4px 0;line-height:1.6">${r.status} <b>${r.type}</b><br><span style="font-size:11px;color:#999;margin-left:22px">${r.file} ${r.status==="✅"?("· "+r.detail):""}</span></div>`).join("") +
-    `<br><div style="text-align:center;font-weight:700;color:${fail===0?"#4caf50":"#e53935"}">${fail===0?"🎉 全部通过！":"⚠️ "+fail+" 张图片加载失败"}</div>`;
+    results.map(r => `<div style="margin:4px 0;line-height:1.6">${r.status} <b>${r.type}</b><br><span style="font-size:11px;color:#999;margin-left:22px">${r.file} ${r.status === "✅" ? ("· " + r.detail) : ""}</span></div>`).join("") +
+    `<br><div style="text-align:center;font-weight:700;color:${fail === 0 ? "#4caf50" : "#e53935"}">${fail === 0 ? "🎉 全部通过！" : "⚠️ " + fail + " 张图片加载失败"}</div>`;
   console.table(results);
   return results;
 }
